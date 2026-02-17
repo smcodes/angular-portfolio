@@ -1,0 +1,19 @@
+<div class="app-shell">
+  <header class="top-bar">
+    <a class="brand" routerLink="/">AeroDesk</a>
+    <nav class="nav-links">
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        Landing
+      </a>
+      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="page-content">
+    <router-outlet />
+  </main>
+</div>

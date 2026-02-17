@@ -1,0 +1,115 @@
+.dashboard {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.dashboard-header p {
+  margin: 0.35rem 0 0;
+  color: var(--muted-text);
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.9rem;
+}
+
+.metric-card {
+  border-radius: 12px;
+  padding: 0.95rem;
+  border: 1px solid var(--line-color);
+  background: var(--surface-color);
+}
+
+.metric-label {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--muted-text);
+}
+
+.metric-value {
+  margin: 0.35rem 0 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.metric-detail {
+  margin: 0.45rem 0 0;
+  color: var(--muted-text);
+  font-size: 0.86rem;
+}
+
+.bookings-panel {
+  border: 1px solid var(--line-color);
+  border-radius: 14px;
+  background: var(--surface-color);
+  padding: 1rem;
+}
+
+.bookings-panel h2 {
+  margin: 0 0 0.85rem;
+  font-size: 1rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 860px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.65rem 0.5rem;
+  border-bottom: 1px solid var(--line-color);
+  vertical-align: middle;
+}
+
+th {
+  color: var(--muted-text);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+td {
+  font-size: 0.92rem;
+}
+
+.status-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  text-transform: capitalize;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.status-confirmed {
+  color: #0f4d2f;
+  background: #d6f5e4;
+}
+
+.status-boarding {
+  color: #5f3900;
+  background: #ffe9bf;
+}
+
+.status-delayed {
+  color: #7d1717;
+  background: #ffe0e0;
+}
+
+.status-completed {
+  color: #1f3f66;
+  background: #dcecff;
+}

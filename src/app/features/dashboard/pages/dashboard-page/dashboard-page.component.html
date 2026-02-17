@@ -1,0 +1,52 @@
+<section class="dashboard">
+  <header class="dashboard-header">
+    <h1>Flight Booking Dashboard</h1>
+    <p>Operational overview for upcoming departures and booking activity.</p>
+  </header>
+
+  <section class="metric-grid">
+    @for (metric of metrics; track metric.label) {
+      <article class="metric-card">
+        <p class="metric-label">{{ metric.label }}</p>
+        <p class="metric-value">{{ metric.value }}</p>
+        <p class="metric-detail">{{ metric.detail }}</p>
+      </article>
+    }
+  </section>
+
+  <section class="bookings-panel">
+    <h2>Upcoming Flights</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Booking</th>
+            <th>Passenger</th>
+            <th>Route</th>
+            <th>Departure</th>
+            <th>Gate</th>
+            <th>Status</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (booking of bookings; track trackById($index, booking)) {
+            <tr>
+              <td>{{ booking.id }}</td>
+              <td>{{ booking.passengerName }}</td>
+              <td>{{ booking.from }} -> {{ booking.to }} ({{ booking.routeCode }})</td>
+              <td>{{ booking.departureTime | date: 'MMM d, y, h:mm a' }}</td>
+              <td>{{ booking.gate }}</td>
+              <td>
+                <span class="status-badge status-{{ booking.status }}">
+                  {{ booking.status }}
+                </span>
+              </td>
+              <td>{{ booking.priceUsd | currency: 'USD':'symbol':'1.0-0' }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+</section>
