@@ -1,14 +1,30 @@
 .landing-page {
   display: grid;
-  gap: 1.25rem;
+  gap: 1.4rem;
 }
 
 .hero-card {
+  position: relative;
+  overflow: clip;
   border: 1px solid var(--line-color);
   border-radius: 20px;
   padding: clamp(1.25rem, 2.5vw, 2rem);
   background: linear-gradient(130deg, #0b3c5f 0%, #146c94 45%, #4f8fba 100%);
   color: #f5fbff;
+  box-shadow: var(--shadow-soft);
+  animation: section-rise 560ms var(--ease-emphasized);
+}
+
+.hero-glow {
+  position: absolute;
+  width: 40%;
+  height: 115%;
+  left: -15%;
+  top: -10%;
+  transform: rotate(10deg);
+  background: linear-gradient(120deg, transparent 15%, rgba(255, 255, 255, 0.26) 50%, transparent 85%);
+  animation: shimmer 2400ms ease-in-out 360ms both;
+  pointer-events: none;
 }
 
 .eyebrow {
@@ -44,6 +60,12 @@ h1 {
   border-radius: 10px;
   font-weight: 600;
   border: 1px solid transparent;
+  transition: transform 200ms var(--ease-emphasized), box-shadow 200ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 24px -18px rgba(7, 26, 39, 0.9);
 }
 
 .btn-primary {
@@ -68,6 +90,28 @@ h1 {
   border-radius: 14px;
   padding: 1rem;
   background: var(--surface-color);
+  box-shadow: 0 14px 35px -32px rgba(8, 38, 61, 0.78);
+  transition: transform 220ms var(--ease-emphasized), border-color 220ms ease,
+    box-shadow 220ms ease;
+  animation: section-rise 520ms var(--ease-emphasized) both;
+}
+
+.highlight-card:nth-child(1) {
+  animation-delay: 80ms;
+}
+
+.highlight-card:nth-child(2) {
+  animation-delay: 160ms;
+}
+
+.highlight-card:nth-child(3) {
+  animation-delay: 240ms;
+}
+
+.highlight-card:hover {
+  transform: translateY(-3px);
+  border-color: #b8d7eb;
+  box-shadow: 0 18px 34px -24px rgba(8, 38, 61, 0.55);
 }
 
 .highlight-card h2 {

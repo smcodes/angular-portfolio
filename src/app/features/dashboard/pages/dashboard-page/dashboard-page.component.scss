@@ -1,6 +1,7 @@
 .dashboard {
   display: grid;
   gap: 1.25rem;
+  animation: section-rise 420ms var(--ease-emphasized);
 }
 
 .dashboard-header h1 {
@@ -24,6 +25,32 @@
   padding: 0.95rem;
   border: 1px solid var(--line-color);
   background: var(--surface-color);
+  box-shadow: 0 12px 28px -26px rgba(8, 38, 61, 0.75);
+  transition: transform 220ms var(--ease-emphasized), border-color 200ms ease,
+    box-shadow 200ms ease;
+  animation: section-rise 500ms var(--ease-emphasized) both;
+}
+
+.metric-card:nth-child(1) {
+  animation-delay: 70ms;
+}
+
+.metric-card:nth-child(2) {
+  animation-delay: 130ms;
+}
+
+.metric-card:nth-child(3) {
+  animation-delay: 190ms;
+}
+
+.metric-card:nth-child(4) {
+  animation-delay: 250ms;
+}
+
+.metric-card:hover {
+  transform: translateY(-3px);
+  border-color: #bfdcf0;
+  box-shadow: 0 18px 30px -24px rgba(8, 38, 61, 0.6);
 }
 
 .metric-label {
@@ -49,6 +76,9 @@
   border-radius: 14px;
   background: var(--surface-color);
   padding: 1rem;
+  box-shadow: var(--shadow-soft);
+  animation: section-rise 540ms var(--ease-emphasized) both;
+  animation-delay: 300ms;
 }
 
 .bookings-panel h2 {
@@ -85,6 +115,14 @@ td {
   font-size: 0.92rem;
 }
 
+tbody tr {
+  transition: background-color 180ms ease;
+}
+
+tbody tr:hover {
+  background: color-mix(in srgb, #eaf6ff 72%, white);
+}
+
 .status-badge {
   display: inline-block;
   border-radius: 999px;
@@ -92,6 +130,11 @@ td {
   text-transform: capitalize;
   font-size: 0.78rem;
   font-weight: 600;
+  transition: transform 180ms ease;
+}
+
+tbody tr:hover .status-badge {
+  transform: scale(1.03);
 }
 
 .status-confirmed {

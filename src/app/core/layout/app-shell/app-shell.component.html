@@ -1,19 +1,69 @@
 <div class="app-shell">
-  <header class="top-bar">
-    <a class="brand" routerLink="/">AeroDesk</a>
-    <nav class="nav-links">
+  <header class="top-bar" role="banner">
+    <div class="top-bar-inner">
+      <a class="brand" routerLink="/" (click)="closeMobileMenu()">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name">AeroDesk</span>
+          <span class="brand-tagline">Operations Control</span>
+        </span>
+      </a>
+
+      <button
+        type="button"
+        class="menu-toggle"
+        [attr.aria-expanded]="mobileMenuOpen()"
+        aria-controls="primary-navigation"
+        aria-label="Toggle navigation menu"
+        (click)="toggleMobileMenu()"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav
+        class="nav-links"
+        id="primary-navigation"
+        [class.open]="mobileMenuOpen()"
+        aria-label="Primary navigation"
+      >
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="closeMobileMenu()"
+        >
+          Landing
+        </a>
+        <a routerLink="/dashboard" routerLinkActive="active" (click)="closeMobileMenu()">
+          Dashboard
+        </a>
+      </nav>
+
+      <a class="cta-link" routerLink="/dashboard" (click)="closeMobileMenu()">
+        Live Console
+      </a>
+    </div>
+
+    <nav class="mobile-nav" [class.open]="mobileMenuOpen()" aria-label="Mobile navigation">
       <a
         routerLink="/"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeMobileMenu()"
       >
         Landing
       </a>
-      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/dashboard" routerLinkActive="active" (click)="closeMobileMenu()">
+        Dashboard
+      </a>
     </nav>
   </header>
 
   <main class="page-content">
-    <router-outlet />
+    <div class="route-stage" [@routeTransition]="getRouteAnimationData()">
+      <router-outlet />
+    </div>
   </main>
 </div>
